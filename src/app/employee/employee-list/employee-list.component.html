@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Salary</th>
+            <th>Employee Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeeList">
+            <td><a [routerLink]="[employee.id]" [queryParams]="{ mode: 1 }" queryParamsHandling="merge">Details</a></td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.age}}</td>
+        </tr>
+    </tbody>
+</table>
