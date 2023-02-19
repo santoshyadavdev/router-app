@@ -17,14 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    MainNavComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, MainNavComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,8 +33,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

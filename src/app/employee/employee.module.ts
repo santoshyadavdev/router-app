@@ -18,4 +18,4 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     EmployeeRoutingModule
   ]
 })
-export class EmployeeModule { }
+export default class EmployeeModule { }
