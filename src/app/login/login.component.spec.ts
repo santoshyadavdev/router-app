@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { LoginComponent } from './login.component';
 
@@ -8,9 +9,16 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
+      declarations: [LoginComponent],
+      providers: [
+        provideRouter([
+          {
+            path: 'login',
+            component: LoginComponent,
+          },
+        ]),
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
@@ -19,5 +27,8 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should have a login button', async () => {
+    const harness = await RouterTestingHarness.create();
   });
 });

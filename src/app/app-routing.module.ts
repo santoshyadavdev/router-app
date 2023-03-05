@@ -31,7 +31,7 @@ const authGuard: CanMatchFn = () => {
   return router.parseUrl('/login');
 };
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
@@ -43,7 +43,7 @@ const routes: Routes = [
     data: {
       reuse: true,
     },
-    // runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
+    runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
     // providers: [LocalRouteService],
     // title: 'Home'
   },
@@ -68,27 +68,27 @@ const routes: Routes = [
   },
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, {
-      // enableTracing: true,
-      // preloadingStrategy: PreloadAllModules,
-      // anchorScrolling: 'enabled',
-      // scrollPositionRestoration: 'top',
-      // initialNavigation: 'enabledNonBlocking' // bootstrap is not blocked
-      onSameUrlNavigation: 'reload',
-    }),
-  ],
-  providers: [
-    {
-      provide: TitleStrategy,
-      useClass: TitleService,
-    },
-    {
-      provide: RouteReuseStrategy,
-      useClass: ReuseRouter,
-    },
-  ],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes, {
+//       // enableTracing: true,
+//       // preloadingStrategy: PreloadAllModules,
+//       // anchorScrolling: 'enabled',
+//       // scrollPositionRestoration: 'top',
+//       // initialNavigation: 'enabledNonBlocking' // bootstrap is not blocked
+//       onSameUrlNavigation: 'reload',
+//     }),
+//   ],
+//   providers: [
+//     {
+//       provide: TitleStrategy,
+//       useClass: TitleService,
+//     },
+//     {
+//       provide: RouteReuseStrategy,
+//       useClass: ReuseRouter,
+//     },
+//   ],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule {}
