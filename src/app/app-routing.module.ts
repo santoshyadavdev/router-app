@@ -11,6 +11,7 @@ import {
   RouterStateSnapshot,
   Routes,
   TitleStrategy,
+  UrlSegment,
 } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LocalRouteService } from './local-route.service';
@@ -18,6 +19,7 @@ import { LoginService } from './login.service';
 import { LoginComponent } from './login/login.component';
 import { ReuseRouter } from './resuse-router.service';
 import { TitleService } from './title.service';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 const authGuard: CanMatchFn = () => {
   console.log('authGuard');
@@ -56,10 +58,29 @@ export const routes: Routes = [
   },
   {
     path: 'user',
+    data: {
+      preload: true,
+    },
     loadComponent: () =>
       import('./user/user.component').then((m) => m.UserComponent),
     // providers: [LocalRouteService]
     canActivate: [authGuard],
+  },
+  {
+    matcher: (url) => {
+      if (url.length === 1 && url[0].path.match(/\d/g)) {
+        return {
+          consumed: url,
+          posParams: {
+            id: new UrlSegment(url[0].path.slice(0), {}),
+          },
+        };
+      }
+
+      return null;
+    },
+    component: VerifyEmailComponent,
+    // title: 'Employee Details'
   },
   {
     path: '',
