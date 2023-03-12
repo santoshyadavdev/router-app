@@ -27,6 +27,7 @@ import {
   withDebugTracing,
   withEnabledBlockingInitialNavigation,
   withHashLocation,
+  withInMemoryScrolling,
   withPreloading,
   withRouterConfig,
 } from '@angular/router';
@@ -85,6 +86,10 @@ export class PreloadingStrategyService implements PreloadingStrategy {
       // withHashLocation(),
       // withPreloading( PreloadAllModules),
       // withPreloading(PreloadingStrategyService),
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
+      }),
       withRouterConfig({
         onSameUrlNavigation: 'reload',
         // urlUpdateStrategy: 'eager',

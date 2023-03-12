@@ -35,6 +35,10 @@ const authGuard: CanMatchFn = () => {
 
 export const routes: Routes = [
   {
+    path: 'paragraph',
+    loadComponent: () => import('./achor-scroll/achor-scroll.component'),
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },
@@ -68,11 +72,15 @@ export const routes: Routes = [
   },
   {
     matcher: (url) => {
-      if (url.length === 1 && url[0].path.match(/\d/g)) {
+      if (
+        url.length === 2 &&
+        url[0].path === 'verify' &&
+        url[1].path.match(/\d/g)
+      ) {
         return {
           consumed: url,
           posParams: {
-            id: new UrlSegment(url[0].path.slice(0), {}),
+            id: new UrlSegment(url[1].path.slice(0), {}),
           },
         };
       }
