@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -20,7 +20,7 @@ import { LocalRouteService } from '../local-route.service';
     MatSortModule
   ]
 })
-export class UserComponent implements AfterViewInit {
+export class UserComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<UserItem>;
@@ -31,6 +31,10 @@ export class UserComponent implements AfterViewInit {
 
   constructor(private localRoute: LocalRouteService) {
     this.dataSource = new UserDataSource();
+  }
+
+  ngOnInit(){
+    console.log('ngOnInit for User');
   }
 
   ngAfterViewInit(): void {

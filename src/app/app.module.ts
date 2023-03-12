@@ -79,12 +79,13 @@ export class PreloadingStrategyService implements PreloadingStrategy {
     provideRouter(
       routes,
       // withDebugTracing(),
-      //  withEnabledBlockingInitialNavigation()
+      //  withEnabledBlockingInitialNavigation() //required for SSR
       // withHashLocation(),
       // withPreloading( PreloadAllModules),
       // withPreloading(PreloadingStrategyService),
       withRouterConfig({
         onSameUrlNavigation: 'reload',
+        // urlUpdateStrategy: 'eager',
       })
     ),
     {

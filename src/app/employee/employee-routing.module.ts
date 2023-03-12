@@ -3,7 +3,7 @@ import { RouterModule, Routes, UrlSegment } from '@angular/router';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeComponent } from './employee/employee.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path:'',
     component: EmployeeComponent,
@@ -26,8 +26,8 @@ const routes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class EmployeeRoutingModule { }
+// @NgModule({
+//   imports: [RouterModule.forChild(routes)],
+//   exports: [RouterModule]
+// })
+// export class EmployeeRoutingModule { }

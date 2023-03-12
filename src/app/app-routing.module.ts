@@ -45,7 +45,7 @@ export const routes: Routes = [
     data: {
       reuse: true,
     },
-    runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
+    // runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
     // providers: [LocalRouteService],
     // title: 'Home'
   },
@@ -58,13 +58,13 @@ export const routes: Routes = [
   },
   {
     path: 'user',
-    data: {
-      preload: true,
-    },
+    // data: {
+    //   preload: true,
+    // },
     loadComponent: () =>
       import('./user/user.component').then((m) => m.UserComponent),
     // providers: [LocalRouteService]
-    canActivate: [authGuard],
+    canMatch: [authGuard],
   },
   {
     matcher: (url) => {
