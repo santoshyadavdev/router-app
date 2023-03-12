@@ -35,6 +35,7 @@ import { ReuseRouter } from './resuse-router.service';
 import { TitleService } from './title.service';
 import { Observable, of } from 'rxjs';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -76,6 +77,7 @@ export class PreloadingStrategyService implements PreloadingStrategy {
     MatInputModule,
   ],
   providers: [
+    provideHttpClient(),
     provideRouter(
       routes,
       // withDebugTracing(),
