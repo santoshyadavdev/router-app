@@ -101,6 +101,103 @@
           }
         }
       }
+    },
+    "RouterHarnessdemo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        }
+      },
+      "root": "projects/router-harnessdemo",
+      "sourceRoot": "projects/router-harnessdemo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/router-harnessdemo",
+            "index": "projects/router-harnessdemo/src/index.html",
+            "main": "projects/router-harnessdemo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/router-harnessdemo/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/router-harnessdemo/src/favicon.ico",
+              "projects/router-harnessdemo/src/assets"
+            ],
+            "styles": [
+              "projects/router-harnessdemo/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "RouterHarnessdemo:build:production"
+            },
+            "development": {
+              "browserTarget": "RouterHarnessdemo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "RouterHarnessdemo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/router-harnessdemo/tsconfig.spec.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/router-harnessdemo/src/favicon.ico",
+              "projects/router-harnessdemo/src/assets"
+            ],
+            "styles": [
+              "projects/router-harnessdemo/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
