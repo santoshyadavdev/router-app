@@ -45,7 +45,7 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     data: {
       reuse: true,
     },
@@ -58,7 +58,7 @@ export const routes: Routes = [
     loadChildren: () => import('./employee/employee.module'),
     // providers: [LocalRouteService]
     // title: 'Employee'
-    canMatch: [authGuard],
+    // canMatch: [authGuard],
   },
   {
     path: 'user',
@@ -68,7 +68,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./user/user.component').then((m) => m.UserComponent),
     // providers: [LocalRouteService]
-    canMatch: [authGuard],
+    // canMatch: [authGuard],
   },
   {
     matcher: (url) => {

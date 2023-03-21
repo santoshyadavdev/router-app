@@ -86,23 +86,18 @@ export class PreloadingStrategyService implements PreloadingStrategy {
       // withHashLocation(),
       // withPreloading( PreloadAllModules),
       // withPreloading(PreloadingStrategyService),
-      withInMemoryScrolling({
-        anchorScrolling: 'enabled',
-        scrollPositionRestoration: 'enabled',
-      }),
-      withRouterConfig({
-        onSameUrlNavigation: 'reload',
-        // urlUpdateStrategy: 'eager',
-      })
+      // withRouterConfig({
+      //   onSameUrlNavigation: 'reload',
+      // })
     ),
-    {
-      provide: RouteReuseStrategy,
-      useClass: ReuseRouter,
-    },
-    {
-      provide: TitleStrategy,
-      useClass: TitleService,
-    },
+    // {
+    //   provide: RouteReuseStrategy,
+    //   useClass: ReuseRouter,
+    // },
+    // {
+    //   provide: TitleStrategy,
+    //   useClass: TitleService,
+    // },
   ],
   bootstrap: [AppComponent],
 })
