@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,9 @@ import { Component, inject, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  data$ = inject(HttpClient).get('https://jsonplaceholder.typicode.com/todos/1');
+  data$ = inject(HttpClient).get('https://jsonplaceholder.typicode.com/todos/1').pipe(
+    tap(console.log)
+  );
 
   constructor() {
     console.log('new instance of HomeComponent')
