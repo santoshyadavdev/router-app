@@ -20,7 +20,7 @@ import { LocalRouteService } from '../local-route.service';
     MatSortModule
   ]
 })
-export class UserComponent implements OnInit, AfterViewInit {
+export default class UserComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<UserItem>;

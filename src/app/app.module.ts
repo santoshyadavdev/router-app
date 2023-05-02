@@ -24,6 +24,7 @@ import {
   RouteReuseStrategy,
   RouterModule,
   TitleStrategy,
+  withComponentInputBinding,
   withDebugTracing,
   withEnabledBlockingInitialNavigation,
   withHashLocation,
@@ -82,18 +83,19 @@ export class PreloadingStrategyService implements PreloadingStrategy {
     provideRouter(
       routes,
       // withDebugTracing(),
-      //  withEnabledBlockingInitialNavigation() //required for SSR
+      // withEnabledBlockingInitialNavigation() //required for SSR
       // withHashLocation(),
-      // withPreloading( PreloadAllModules),
+      // withPreloading(PreloadAllModules)
       // withPreloading(PreloadingStrategyService),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // })
+      withComponentInputBinding()
     ),
-    // {
-    //   provide: RouteReuseStrategy,
-    //   useClass: ReuseRouter,
-    // },
+    {
+      provide: RouteReuseStrategy,
+      useClass: ReuseRouter,
+    },
     // {
     //   provide: TitleStrategy,
     //   useClass: TitleService,

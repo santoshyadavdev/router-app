@@ -45,28 +45,28 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    // canActivate: [authGuard],
+    // canMatch: [authGuard],
     data: {
       reuse: true,
     },
     // runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
-    // providers: [LocalRouteService],
-    // title: 'Home'
+    providers: [LocalRouteService],
+    title: 'Home'
   },
   {
     path: 'employee',
     loadChildren: () => import('./employee/employee.module'),
-    // providers: [LocalRouteService]
+    providers: [LocalRouteService]
     // title: 'Employee'
     // canMatch: [authGuard],
   },
   {
     path: 'user',
-    // data: {
-    //   preload: true,
-    // },
+    data: {
+      preload: true,
+    },
     loadComponent: () =>
-      import('./user/user.component').then((m) => m.UserComponent),
+      import('./user/user.component'),
     // providers: [LocalRouteService]
     // canMatch: [authGuard],
   },
