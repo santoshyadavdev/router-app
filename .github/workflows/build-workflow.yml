@@ -3,7 +3,7 @@ name : build-workflow
 on : 
     push:
         branches:
-        - master
+        - main
 
 jobs:
     setup:
