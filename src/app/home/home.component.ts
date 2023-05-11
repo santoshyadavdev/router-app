@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { tap } from 'rxjs';
+import { LocalRouteService } from '../local-route.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,13 @@ export class HomeComponent implements OnInit {
 
   @Input() reuse : boolean =false;
 
+  @Input() todoData = [];
+
   data$ = inject(HttpClient).get('https://jsonplaceholder.typicode.com/todos/1').pipe(
     tap(console.log)
   );
 
-  constructor() {
+  constructor(private localRouter: LocalRouteService) {
     console.log('new instance of HomeComponent')
    }
 

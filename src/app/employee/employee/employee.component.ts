@@ -39,5 +39,6 @@ export class EmployeeComponent {
 
   constructor(private localRoute: LocalRouteService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

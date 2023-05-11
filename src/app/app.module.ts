@@ -90,12 +90,12 @@ export class PreloadingStrategyService implements PreloadingStrategy {
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
       // })
-      withComponentInputBinding()
+      // withComponentInputBinding()
     ),
-    {
-      provide: RouteReuseStrategy,
-      useClass: ReuseRouter,
-    },
+    // {
+    //   provide: RouteReuseStrategy,
+    //   useClass: ReuseRouter,
+    // },
     // {
     //   provide: TitleStrategy,
     //   useClass: TitleService,

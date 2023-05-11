@@ -5,6 +5,7 @@ import {
   CanActivateFn,
   CanMatchFn,
   PreloadAllModules,
+  ResolveFn,
   Router,
   RouteReuseStrategy,
   RouterModule,
@@ -20,6 +21,14 @@ import { LoginComponent } from './login/login.component';
 import { ReuseRouter } from './resuse-router.service';
 import { TitleService } from './title.service';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { HttpClient } from '@angular/common/http';
+
+const todoData: ResolveFn<any> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  return inject(HttpClient).get('https://jsonplaceholder.typicode.com/todos/1');
+};
 
 const authGuard: CanMatchFn = () => {
   console.log('authGuard');
@@ -49,15 +58,18 @@ export const routes: Routes = [
     data: {
       reuse: true,
     },
+    resolve: {
+      todoData: todoData,
+    },
     // runGuardsAndResolvers: 'paramsChange', // always run guards and resolvers
     providers: [LocalRouteService],
-    title: 'Home'
+    title: 'Home',
   },
   {
     path: 'employee',
     loadChildren: () => import('./employee/employee.module'),
-    providers: [LocalRouteService]
-    // title: 'Employee'
+    providers: [LocalRouteService],
+    title: 'Employee'
     // canMatch: [authGuard],
   },
   {
@@ -65,8 +77,7 @@ export const routes: Routes = [
     data: {
       preload: true,
     },
-    loadComponent: () =>
-      import('./user/user.component'),
+    loadComponent: () => import('./user/user.component'),
     // providers: [LocalRouteService]
     // canMatch: [authGuard],
   },
