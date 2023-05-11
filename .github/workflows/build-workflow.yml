@@ -10,9 +10,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
-        - name: npm install
-          run: |
-            npm install
+        - uses: actions/setup-node@v3
+          with:
+           node-version: 16
+           cache: 'npm'
 
     build:
         runs-on: ubuntu-latest
