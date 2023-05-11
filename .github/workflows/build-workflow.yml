@@ -6,20 +6,17 @@ on :
         - main
 
 jobs:
-    setup:
+    build:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
+        - name : npm install
+          uses: actions/setup-node@v3
           with:
            node-version: 16
            cache: 'npm'
-        - run: npm ci --force
-
-    build:
-        runs-on: ubuntu-latest
-        needs: setup
-        steps:
+        - name: npm ci
+          run: npm ci --force
         - name: npm run build
-          run: |
-            npm run build
+          run: npm run build
+    
