@@ -1,0 +1,23 @@
+name : build-workflow
+
+on : 
+    push:
+        branches:
+        - master
+
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - name: npm install
+          run: |
+            npm install
+
+    build:
+        runs-on: ubuntu-latest
+        needs: setup
+        steps:
+        - name: npm run build
+          run: |
+            npm run build
