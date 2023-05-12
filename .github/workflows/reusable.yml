@@ -5,9 +5,16 @@ on:
     inputs:
         workflow_name:
             description: Workflow description
+            type: string
             required: true
-            default: 'Workflow name'
-                 
+            
+  workflow_call:
+    inputs:
+        workflow_name:
+            description: Workflow description
+            type: string
+            default: Dispatch workflow
+         
 jobs:
     Run_Build:
         runs-on: ubuntu-latest
