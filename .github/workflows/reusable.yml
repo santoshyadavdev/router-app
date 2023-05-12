@@ -41,7 +41,7 @@ jobs:
         strategy:
             matrix:
                 node:  [16.x,18.x]
-                projects: ${{ fromJson(inputs.projects) }}
+                projects: ${{ inputs.projects }}
         steps:
           - name: Checkout
             uses: actions/checkout@v3
