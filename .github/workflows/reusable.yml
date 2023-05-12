@@ -12,6 +12,11 @@ on:
             description: Node version
             type: boolean
             required: true
+
+        test:
+            description: Projects to run
+            type: boolean
+            required: true
         
         projects:
             description: Projects to run
@@ -30,6 +35,11 @@ on:
             type: boolean
             default: true
 
+        test:
+            description: Projects to run
+            type: boolean
+            default: false
+
         projects:
             description: Projects to run
             type: string
@@ -41,7 +51,7 @@ jobs:
         strategy:
             matrix:
                 node:  [16.x,18.x]
-                projects:  [router-app,RouterHarnessdemo]
+                projects:  ${{ fromJSON(inputs.projects) }}
         steps:
           - name: Checkout
             uses: actions/checkout@v3
@@ -52,5 +62,10 @@ jobs:
           - name: Install node modules
             run: npm ci --force
           - name: Run Build
+            if: inputs.build
             run: npm run build --project= ${{ matrix.projects }}
+          - name: Run Test
+            if: inputs.test
+            run: npm run test --project= ${{ matrix.projects }}
+
 
