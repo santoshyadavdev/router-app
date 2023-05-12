@@ -1,4 +1,4 @@
-name: Use Reusabel workflow
+name: Use Reusable workflow
 
 on:
   push:
@@ -9,10 +9,9 @@ on:
       - main
 
 jobs:
-    Run_Workflow:
-                name: resuse
-                uses : ./.github/workflows/reusable.yml
-                with:
-                    workflow_name: "Release Workflow"
-                    node_matrix:  16.x,18.x
-
+    RunWorkflow:
+        name: ReUse workflow
+        uses: ./.github/workflows/reusable.yml
+        with:
+          workflow_name: Release Workflow
+          node_versions: 16.x,18.x
