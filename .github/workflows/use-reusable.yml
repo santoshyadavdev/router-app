@@ -14,4 +14,3 @@ jobs:
         uses: ./.github/workflows/reusable.yml
         with:
           workflow_name: Release Workflow
-          node_versions: 16.x,18.x
