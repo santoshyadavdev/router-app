@@ -15,3 +15,4 @@ jobs:
         with:
           workflow_name: Release Workflow
           projects: "['router-app','RouterHarnessdemo']"
+          test: true
