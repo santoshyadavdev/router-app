@@ -7,6 +7,11 @@ on:
             description: Workflow description
             type: string
             required: true
+        
+        node_version:
+            description: Node version
+            type: string
+            required: true
             
   workflow_call:
     inputs:
@@ -14,13 +19,18 @@ on:
             description: Workflow description
             type: string
             default: Dispatch workflow
+
+        node_version:
+            description: Node version
+            type: string
+            default: 16.x
          
 jobs:
     Run_Build:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node:  [16.x, 18.x]
+                node:  ${{ inputs.node_version }}
         steps:
           - name: Checkout
             uses: actions/checkout@v3
