@@ -97,7 +97,8 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "browsers": "ChromeHeadless"
           }
         }
       }
@@ -194,7 +195,8 @@
             "styles": [
               "projects/router-harnessdemo/src/styles.sass"
             ],
-            "scripts": []
+            "scripts": [],
+            "browsers": "ChromeHeadless"
           }
         }
       }
