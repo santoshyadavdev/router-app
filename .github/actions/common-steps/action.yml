@@ -4,7 +4,7 @@ description: This is a common action that can be used by other actions
 runs: 
   using: composite
   steps:
-      - run: npm ci
+      - run: npm ci --force
         shell: bash
       - run: npm run build
         shell: bash
