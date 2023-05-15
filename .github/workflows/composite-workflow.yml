@@ -26,4 +26,6 @@ jobs:
         # Install node modules
         - name: Install node modules, Run build and test
           uses: ./.github/actions/common-steps
+          with:
+            build: 'true'
     
