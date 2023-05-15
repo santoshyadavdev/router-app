@@ -11,8 +11,10 @@ on:
 jobs:
     RunWorkflow:
         name: ReUse workflow
+        # we are using the reusable workflow from the same repo
         uses: ./.github/workflows/reusable.yml
         with:
           workflow_name: Release Workflow
+          #  passing projects to run 
           projects: "['router-app','RouterHarnessdemo']"
-          test: true
+          test: false

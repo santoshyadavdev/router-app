@@ -1,5 +1,5 @@
 # name of your workflow
-name : build-workflow
+name : composite-workflow
 
 # define events that trigger the workflow
 on : 
@@ -24,9 +24,6 @@ jobs:
            node-version: '16.x'
            cache: 'npm'
         # Install node modules
-        - name: Install node modules
-          run: npm ci --force
-        # Run build script
-        - name: Run build
-          run: npm run build
+        - name: Install node modules, Run build and test
+          uses: ./router-app/.github/actions/common-steps
     

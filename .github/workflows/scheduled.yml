@@ -1,0 +1,19 @@
+name: Trigger workflow nightly
+
+on:
+  schedule:
+    # This will run at 00:00 UTC every day
+    - cron: "0 0 * * *" 
+    # Minute Hour DayOfMonth Month DayOfWeek
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: "16.x"
+        - run: npm ci
+        - run: npm run build
+        - run: npm run test

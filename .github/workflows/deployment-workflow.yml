@@ -4,6 +4,7 @@ on :
 #   push :
 #     branches :
 #       - master
+# worflow neeeds to run maually with Input parameter
     workflow_dispatch :
         inputs :
             name :
@@ -13,6 +14,7 @@ on :
 
 jobs :
     approval:
+        # this will wait for approval
         environment: staging
         runs-on : ubuntu-latest
         steps :
