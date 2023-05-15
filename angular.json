@@ -98,7 +98,8 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "browsers": "ChromeHeadless"
+            "browsers": "ChromeHeadless",
+            "watch": false
           }
         }
       }
@@ -196,7 +197,8 @@
               "projects/router-harnessdemo/src/styles.sass"
             ],
             "scripts": [],
-            "browsers": "ChromeHeadless"
+            "browsers": "ChromeHeadless",
+            "watch": false
           }
         }
       }
