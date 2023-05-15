@@ -18,14 +18,12 @@ jobs:
         # checkout the repository
         - uses: actions/checkout@v3
         # setup node with node version 16.x
-        - name : Setup Npm
-          uses: actions/setup-node@v3
-          with:
-           node-version: '16.x'
-           cache: 'npm'
+        # - name : Setup Npm
+        #   uses: actions/setup-node@v3
+        #   with:
+        #    node-version: '16.x'
+        #    cache: 'npm'
         # Install node modules
         - name: Install node modules, Run build and test
           uses: ./.github/actions/common-steps
-          with:
-            build: 'true'
     

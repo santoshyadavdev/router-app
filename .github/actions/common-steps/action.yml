@@ -1,19 +1,41 @@
 name: common-action
 description: This is a common action that can be used by other actions
 
-inputs:
-  build:
-    description: 'If we need to build the project'
-    required: true
-    default: 'false'
+# inputs:
+#   build:
+#     description: 'If we need to build the project'
+#     required: true
+#     default: 'false'
 
 runs: 
   using: composite
   steps:
-      - run: npm ci --force
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+
+      - name: Check cache for dependency 
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ./router-app/node_modules
+          key: node-cache-${{ runner.os }}-local-npm-${{ hashFiles('**/package.lock') }}
+
+      - name: npm install if not cache hit
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run:  npm ci --force
         shell: bash
+        
       - run: npm run build
+      # can be  "enum": [
+      #                 "bash",
+      #                 "pwsh",
+      #                 "python",
+      #                 "sh",
+      #                 "cmd",
+      #                 "powershell"
+      #               ]
         shell: bash
-        if: ${{ inputs.build == 'true' }}
       - run: npm run test
         shell: bash
