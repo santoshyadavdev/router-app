@@ -1,27 +1,27 @@
 name: Reusable workflow
 
 on: 
-  workflow_dispatch:
-    inputs:
-        workflow_name:
-            description: Workflow description
-            type: string
-            required: true
+  # workflow_dispatch:
+  #   inputs:
+  #       workflow_name:
+  #           description: Workflow description
+  #           type: string
+  #           required: true
         
-        build:
-            description: Node version
-            type: boolean
-            required: true
+  #       build:
+  #           description: Node version
+  #           type: boolean
+  #           required: true
 
-        test:
-            description: Projects to run
-            type: boolean
-            required: true
+  #       test:
+  #           description: Projects to run
+  #           type: boolean
+  #           required: true
         
-        projects:
-            description: Projects to run
-            type: string
-            required: true
+  #       projects:
+  #           description: Projects to run
+  #           type: string
+  #           required: true
             
   workflow_call:
     inputs:

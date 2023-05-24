@@ -4,7 +4,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 
-import { UserComponent } from './user.component';
+import  UserComponent from './user.component';
 
 describe('UserComponent', () => {
   let component: UserComponent;

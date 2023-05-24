@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AchorScrollComponent } from './achor-scroll.component';
+import AchorScrollComponent from './achor-scroll.component';
 
 describe('AchorScrollComponent', () => {
   let component: AchorScrollComponent;
