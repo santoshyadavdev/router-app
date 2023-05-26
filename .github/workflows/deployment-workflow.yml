@@ -8,9 +8,9 @@ on :
     workflow_dispatch :
         inputs :
             name :
-                description : 'Person to greet'
+                description : 'Name of person approving deployment'
                 required : true
-                default : 'Mona the Octocat'
+                default : 'Release Manager'
 
 jobs :
     approval:
