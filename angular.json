@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "router-app:build:production"
+              "buildTarget": "router-app:build:production"
             },
             "development": {
-              "browserTarget": "router-app:build:development"
+              "buildTarget": "router-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "router-app:build"
+            "buildTarget": "router-app:build"
           }
         },
         "test": {
@@ -166,10 +166,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "RouterHarnessdemo:build:production"
+              "buildTarget": "RouterHarnessdemo:build:production"
             },
             "development": {
-              "browserTarget": "RouterHarnessdemo:build:development"
+              "buildTarget": "RouterHarnessdemo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -177,7 +177,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "RouterHarnessdemo:build"
+            "buildTarget": "RouterHarnessdemo:build"
           }
         },
         "test": {
