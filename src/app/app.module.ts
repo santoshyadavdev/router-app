@@ -31,6 +31,7 @@ import {
   withInMemoryScrolling,
   withPreloading,
   withRouterConfig,
+  withViewTransitions,
 } from '@angular/router';
 import { routes } from './app-routing.module';
 import { ReuseRouter } from './resuse-router.service';
@@ -89,8 +90,9 @@ export class PreloadingStrategyService implements PreloadingStrategy {
       // withPreloading(PreloadingStrategyService),
       // withRouterConfig({
       //   onSameUrlNavigation: 'reload',
-      // })
-      // withComponentInputBinding()
+      // }),
+      // withComponentInputBinding(),
+      // withViewTransitions()
     ),
     // {
     //   provide: RouteReuseStrategy,
